@@ -161,7 +161,6 @@ class Map extends Component {
                             <div className={'marker-image'}
                                  style={{
                                      backgroundSize: 'cover',
-                                     backgroundImage: `url(${member3})`
                                  }}
                             >
                             </div>

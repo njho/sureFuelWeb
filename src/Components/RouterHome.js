@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
+import {Switch, Route, Redirect} from 'react-router-dom';
+import {ConnectedRouter} from 'react-router-redux';
 import history from '../Helpers/history.js';
 
 
@@ -25,22 +25,22 @@ function PrivateRoute({component: Component, authed, ...rest}) {
         <Route
             {...rest}
             render={(props) => authed === true
-        ? <Component {...props} />
-        : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
+                ? <Component {...props} />
+                : <Redirect to={{pathname: '/login', state: {from: props.location}}}/>}
         />
     )
 }
 
 function LoginRoute({component: Component, authed, ...rest}) {
-   /* console.log('loginRoute');
-    console.log(authed);*/
+    /* console.log('loginRoute');
+     console.log(authed);*/
     return (
         <Route
             exact
             {...rest}
             render={(props) => authed === false
-        ? <Component {...props} />
-        : <Redirect to='/home' />}
+                ? <Component {...props} />
+                : <Redirect to='/home'/>}
         />
     )
 }
@@ -51,8 +51,8 @@ function PublicRoute({component: Component, authed, ...rest}) {
         <Route
             {...rest}
             render={(props) => authed === false
-        ? <Component {...props} />
-        : <Redirect to='/dashboard' />}
+                ? <Component {...props} />
+                : <Redirect to='/dashboard'/>}
         />
     )
 }
@@ -95,18 +95,16 @@ class RouterHome extends Component {
     }
 
     render() {
-        return (this.state.loading === true ? <div dangerouslySetInnerHTML={{ __html: svgString }}/> : (
-            <ConnectedRouter onUpdate={() => window.scrollTo(0, 0)} history={history}>
-                <ScrollToTop>
-                    <Switch>
-                        <Redirect exact from="/" to="/login"/>
-                        <Route exact path="/login" component={App}/>
+        return <ConnectedRouter onUpdate={() => window.scrollTo(0, 0)} history={history}>
+            <ScrollToTop>
+                <Switch>
+                    <Redirect exact from="/" to="/login"/>
+                    <Route exact path="/login" component={App}/>
 
-                        <Route exact path="/home" component={HomeDash}/>
-                    </Switch>
-                </ScrollToTop>
-            </ConnectedRouter>
-        ))
+                    <Route exact path="/home" component={HomeDash}/>
+                </Switch>
+            </ScrollToTop>
+        </ConnectedRouter>
     }
 }
 

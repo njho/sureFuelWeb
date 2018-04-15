@@ -1,7 +1,6 @@
 /*  --- IMPORT
  ------------------------------------------ */
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './style.css';
 import Login from './Components/Common/Login.js';
 import { connect } from 'react-redux';
@@ -35,12 +34,6 @@ class App extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.redirectTo) {
-            history.push(nextProps.redirectTo);
-            this.props.onRedirect();
-        }
-    }
 
 
     render() {
