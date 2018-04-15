@@ -1,0 +1,52 @@
+{
+  "name": "journey-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3",
+    "firebase": "^4.5.0",
+    "immutability-helper": "^2.4.0",
+    "lottie-web": "^5.1.9",
+    "moment": "^2.18.1",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.1",
+    "react": "^15.6.2",
+    "react-addons-shallow-compare": "^15.6.2",
+    "react-collapse": "^4.0.3",
+    "react-copy-to-clipboard": "^5.0.1",
+    "react-dates": "^12.6.0",
+    "react-dom": "^15.6.2",
+    "react-google-maps": "^9.4.5",
+    "react-icons": "^2.2.5",
+    "react-measure": "^2.0.2",
+    "react-motion": "^0.5.2",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-select": "^1.0.0-rc.10",
+    "react-sidebar": "^2.3.2",
+    "react-stripe-elements": "0.0.7",
+    "react-textarea-autosize": "^5.1.0",
+    "react-transition-group": "^2.3.0",
+    "react-visibility-sensor": "^3.11.0",
+    "recharts": "^1.0.0-apha.5",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "source-map-explorer": "^1.5.0",
+    "superagent": "^3.6.3",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.10"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer build/static/js/main.*",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
