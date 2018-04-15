@@ -36,10 +36,8 @@ const FirebaseQuery = {
         console.log('GET_OPTIMIZED_ROUTE');
 
         return dispatch => {
-            return fetch('https://us-central1-surefuel-1da8b.cloudfunctions.net/getRoute')
-                .then(response => {
-                    Promise.all([response, response.json()])
-                }).then(([response, json]) => {
+            return fetch('https://us-central1-surefuel-1da8b.cloudfunctions.net/getRoute', {method: 'GET'})
+                .then(response => Promise.all([response, response.json()])).then(([response, json]) => {
                     if (response.status === 200) {
                         console.log(json);
                         console.log(response);
@@ -47,6 +45,7 @@ const FirebaseQuery = {
                             type: 'OPTIMIZED_ROUTES',
                             value: json
                         });
+
 
                     }
                     else {

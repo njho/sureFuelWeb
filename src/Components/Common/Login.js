@@ -100,10 +100,11 @@ class Login extends Component {
                                 }
                             }
                         } theme="monokai"/>
-                    <div style={{cursor: 'pointer', }} onClick={() => this.props.getOptimizedRoute()}>
-                        <h3 style={{cursor: 'pointer'}}>Optimized Response</h3>
+                    <div style={{cursor: 'pointer',}}
+                         onClick={() => this.props.getOptimizedRoute()}>
+                        <h3 style={{cursor: 'pointer'}}>Click for Optimized Route Response</h3>
                     </div>
-                    {this.props.responseJson !== {} ?
+                    {this.props.responseJson != {} ?
                         <ReactJson
                             collapsed={true}
                             src={

@@ -8,7 +8,8 @@ const defaultState = {
         lat: null,
         lng: null,
     },
-    routes: {}
+    routes: {},
+    responseJson: {}
 
 };
 
