@@ -8,7 +8,6 @@ import history from '../Helpers/history.js';
 
 import App from '../App';
 import HomeDash from './Dashes/HomeDash';
-import ScrollToTop from '../Helpers/ScrollToTop.js';
 import agent from '../Helpers/agent';
 
 const mapStateToProps = state => ({
@@ -95,15 +94,13 @@ class RouterHome extends Component {
     }
 
     render() {
-        return <ConnectedRouter onUpdate={() => window.scrollTo(0, 0)} history={history}>
-            <ScrollToTop>
+        return <ConnectedRouter  history={history}>
                 <Switch>
                     <Redirect exact from="/" to="/login"/>
                     <Route exact path="/login" component={App}/>
 
                     <Route exact path="/home" component={HomeDash}/>
                 </Switch>
-            </ScrollToTop>
         </ConnectedRouter>
     }
 }

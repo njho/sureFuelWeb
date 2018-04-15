@@ -9,6 +9,7 @@ import ReactJson from 'react-json-view';
 const mapStateToProps = state => ({
     ...state.auth,
     register: state.common.register,
+    responseJson: state.common.responseJson
 
 });
 
@@ -101,7 +102,13 @@ class Login extends Component {
                         } theme="monokai"/>
                     <div style={{cursor: 'pointer', }} onClick={() => this.props.getOptimizedRoute()}>
                         <h3 style={{cursor: 'pointer'}}>Optimized Response</h3>
-                    </div>`
+                    </div>
+                    {this.props.responseJson !== {} ?
+                        <ReactJson
+                            collapsed={true}
+                            src={
+                                this.props.responseJson
+                            } theme="monokai"/> : null}
 
 
                 </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import history from './history';
 
+
 var Firebase = require('firebase');
 
 Firebase.initializeApp({
@@ -14,50 +15,6 @@ Firebase.initializeApp({
 
 var authService = Firebase.auth();
 var database = Firebase.database();
-
-let token = null;
-
-const Auth = {
-    current: () => {
-        return new Promise(function (resolve, reject) {
-            authService.onAuthStateChanged(function (user) {
-                if (user) {
-                    resolve(user);
-                } else {
-                    history.push('/');
-                    reject('There was an error bish');
-                }
-            })
-        })
-    },
-    login: (email, password) => {
-        return authService.signInWithEmailAndPassword(email, password);
-    },
-    register: (email, password) => {
-        return authService.createUserWithEmailAndPassword(email, password);
-    },
-    assignConsole: (uid) => {
-        return database.ref('users/' + uid).push();
-    },
-    lookupConsole: (uid) => {
-        return database.ref('users/' + uid).once('value');
-    },
-    lookupConsole2: (uid) => {
-        return dispatch => {
-            var consoleWatch = database.ref('users/' + uid);
-            consoleWatch.on('value', function (snapshot) {
-                /*
-                 console.log(snapshot.val());
-                 */
-
-                dispatch(FirebaseQuery.fetchConsole(snapshot.val()))
-            });
-        }
-    },
-    logout: () => {
-        authService.signOut();
-    }
-};
 
 
 const FirebaseQuery = {
@@ -79,8 +36,10 @@ const FirebaseQuery = {
         console.log('GET_OPTIMIZED_ROUTE');
 
         return dispatch => {
-            return fetch('https://us-central1-surefuel-1da8b.cloudfunctions.net/getRoute', {method: 'GET'})
-                .then(response => Promise.all([response, response.json()])).then(([response, json]) => {
+            return fetch('https://us-central1-surefuel-1da8b.cloudfunctions.net/getRoute')
+                .then(response => {
+                    Promise.all([response, response.json()])
+                }).then(([response, json]) => {
                     if (response.status === 200) {
                         console.log(json);
                         console.log(response);
@@ -102,7 +61,6 @@ const FirebaseQuery = {
 
 
 export default {
-    Auth,
     FirebaseQuery,
     authService
 };

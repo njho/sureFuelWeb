@@ -22,7 +22,7 @@ export default (state = defaultState, action) => {
         case 'OPTIMIZED_ROUTES':
             return {
                 ...state,
-                routes: action.value
+                responseJson: action.value
             };
 
 
