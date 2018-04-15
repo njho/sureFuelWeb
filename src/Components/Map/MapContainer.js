@@ -50,12 +50,10 @@ class MapContainer extends Component {
                  }}
             >
 
-
                 <Map isMarkerShown={true}
                      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIpabTnIbXsdIgI2Zo2zO6g3GGxUbYqw8&v=3.exp&libraries=geometry,drawing,places"
                      loadingElement={<div style={{height: `100px`,}}/>}
                      tabIndex={-1}
-
                      containerElement={
                          <div style={{
                              minHeight: '100px',
