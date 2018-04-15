@@ -42,10 +42,10 @@ class MapContainer extends Component {
 
             <div className={'map-container'}
                  tabIndex={-1}
-
-                 onClick={() => this.toggle('map')}
                  style={{
                      minHeight: '105px',
+                     height: '100%',
+                     width: '100%',
                      minWidth: '105px',
                  }}
             >
@@ -60,11 +60,13 @@ class MapContainer extends Component {
                          <div style={{
                              minHeight: '100px',
                              minWidth: '100px',
+                             height: '100%',
+                             width: '100%',
                              overflow: 'hidden',
                              zIndex: 3,
                              border: 'solid white 3px'
                          }}/>}
-                     mapElement={<div style={{height: `100%`}}/>}/>
+                     mapElement={<div style={{height: `100%`, width: '100%'}}/>}/>
 
             </div>
 
